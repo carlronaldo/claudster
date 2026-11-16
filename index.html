@@ -256,7 +256,8 @@
   /* Kontrast im Dunkelmodus: helleres Pink, sichtbare Trennstriche, ruhige Karten */
   body.dark{ --accent:#FF5C7A; --accent-2:#FF8AA0; --green:#3DDC6A; --red:#FF6961; --gold:#FFB23D; }
   body.dark .tcard{background:#232326; border-color:rgba(255,255,255,.10)}
-  body.dark .toggle button.active{background:#3A3A3E}
+  body.dark .toggle button.active{background:var(--accent); color:#fff; box-shadow:0 2px 10px rgba(255,92,122,.35)}
+  body.dark .toggle button:not(.active){color:#B5B5BB}
   body.dark .slot .bar{background:rgba(255,255,255,.16)}
   body.dark .slot[data-active="true"] .bar{background:rgba(255,255,255,.32)}
   body.dark .modal-card{box-shadow:0 30px 80px rgba(0,0,0,.7)}
