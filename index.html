@@ -162,13 +162,19 @@
   .tcard.hiddencard{align-items:center; justify-content:center; border:1.5px dashed var(--accent); background:var(--surface-2)}
   .tcard.hiddencard .q{font-size:34px; font-weight:800; color:var(--accent)}
 
-  .slot{flex:0 0 auto; width:30px; align-self:stretch; border:none; background:transparent; padding:0; display:flex; align-items:center; justify-content:center; cursor:pointer; position:relative}
-  .slot .bar{width:4px; height:62%; border-radius:99px; background:var(--hairline); transition:all .14s ease}
-  .slot[data-active="true"] .bar{background:rgba(60,60,67,.22)}
-  .slot:hover .bar{background:var(--muted)}
-  .slot.sel .bar{background:var(--accent); width:6px; height:82%}
-  .slot.correct .bar{background:var(--green); width:6px; height:82%}
-  .slot.wrong .bar{background:var(--red); width:6px; height:82%}
+  .slot{flex:0 0 auto; width:46px; align-self:stretch; border:none; background:transparent; padding:0 4px; display:flex; align-items:center; justify-content:center; cursor:pointer; position:relative; transition:width .16s ease}
+  .slot .bar{width:100%; height:100%; min-height:108px; border-radius:16px; border:2px dashed transparent; background:transparent; display:flex; align-items:center; justify-content:center; transition:all .16s ease}
+  .slot[data-active="true"] .bar{border-color:rgba(60,60,67,.28); background:var(--surface-2)}
+  .slot[data-active="true"] .bar::before{content:"+"; font-size:26px; font-weight:700; line-height:1; color:var(--muted)}
+  .slot[data-active="true"]:hover .bar{border-color:var(--accent); background:rgba(255,45,85,.08)}
+  .slot[data-active="true"]:hover .bar::before{color:var(--accent)}
+  .slot.sel{width:64px}
+  .slot.sel .bar{border-style:solid; border-color:var(--accent); background:var(--accent); box-shadow:0 4px 14px rgba(255,45,85,.35)}
+  .slot.sel .bar::before{content:"✓"; color:#fff; font-size:22px}
+  .slot.correct .bar{border-style:solid; border-color:var(--green); background:rgba(52,199,89,.16)}
+  .slot.correct .bar::before{content:"✓"; color:var(--green); font-size:22px}
+  .slot.wrong .bar{border-style:solid; border-color:var(--red); background:rgba(255,59,48,.14)}
+  .slot.wrong .bar::before{content:"✕"; color:var(--red); font-size:22px}
   .slot[data-active="false"]{cursor:default}
   .chipmark{position:absolute; top:-4px; left:50%; transform:translateX(-50%); display:flex; align-items:center; gap:2px; font-size:10px; font-weight:800; color:var(--gold); pointer-events:none}
   .chip-dot{width:12px; height:12px; border-radius:50%; background:var(--gold); display:inline-block; box-shadow:inset 0 0 0 2px rgba(255,255,255,.55)}
@@ -258,8 +264,11 @@
   body.dark .tcard{background:#232326; border-color:rgba(255,255,255,.10)}
   body.dark .toggle button.active{background:var(--accent); color:#fff; box-shadow:0 2px 10px rgba(255,92,122,.35)}
   body.dark .toggle button:not(.active){color:#B5B5BB}
-  body.dark .slot .bar{background:rgba(255,255,255,.16)}
-  body.dark .slot[data-active="true"] .bar{background:rgba(255,255,255,.32)}
+  body.dark .slot[data-active="true"] .bar{border-color:rgba(255,255,255,.28); background:rgba(255,255,255,.06)}
+  body.dark .slot[data-active="true"]:hover .bar{border-color:var(--accent); background:rgba(255,92,122,.14)}
+  body.dark .slot.sel .bar{border-color:var(--accent); background:var(--accent); box-shadow:0 4px 16px rgba(255,92,122,.4)}
+  body.dark .slot.correct .bar{background:rgba(61,220,106,.18)}
+  body.dark .slot.wrong .bar{background:rgba(255,105,97,.18)}
   body.dark .modal-card{box-shadow:0 30px 80px rgba(0,0,0,.7)}
   body.dark .tcard.fresh{background:#1E7C3C; border-color:#1E7C3C}
   body.dark .tcard.ghost-wrong{background:rgba(255,105,97,.14)}
